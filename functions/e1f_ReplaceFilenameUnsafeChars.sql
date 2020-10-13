@@ -95,3 +95,7 @@ $ dollar sign
 END
 GO
 
+/*
+Usage:
+SELECT [dbo].[e1f_ReplaceFilenameUnsafeChars]('Nazov$Suboru+.pdf')
+*/
