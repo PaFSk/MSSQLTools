@@ -21,11 +21,11 @@ CREATE FUNCTION [dbo].[e1f_TimeElapsed]
             CASE
                 WHEN @From IS NULL THEN NULL
 				WHEN MINUTES_AGO < 5 THEN 'teraz'
-                WHEN MINUTES_AGO < 60 THEN CONCAT('pred ', MINUTES_AGO, ' minútami')
+                WHEN MINUTES_AGO < 60 THEN CONCAT('pred ', MINUTES_AGO, ' minÃºtami')
 				WHEN HOURS_AGO < 2 THEN 'pred hodinou'
                 WHEN HOURS_AGO < 24 THEN CONCAT('pred ', HOURS_AGO, ' hodinami')
-				WHEN DAYS_AGO < 2 THEN CONCAT('pred ', DAYS_AGO, ' dòom')
-                WHEN DAYS_AGO < 365 THEN CONCAT(DAYS_AGO, ' days ago')
+				WHEN DAYS_AGO < 2 THEN CONCAT('pred ', DAYS_AGO, ' dÅˆom')
+                WHEN DAYS_AGO < 365 THEN CONCAT('pred ', DAYS_AGO, ' dÅˆami')
 				WHEN YEARS_AGO < 2 THEN 'pred rokom'
                 ELSE CONCAT('pred ', YEARS_AGO, ' rokmi') END
         FROM ( SELECT MINUTES_AGO = DATEDIFF(MINUTE, @From, GETDATE()) ) TIMESPAN_MIN
